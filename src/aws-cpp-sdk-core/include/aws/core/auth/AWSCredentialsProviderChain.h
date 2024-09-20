@@ -8,6 +8,7 @@
 #include <aws/core/Core_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/core/auth/AWSCredentialsProvider.h>
+#include <aws/core/client/ClientConfiguration.h>
 #include <memory>
 
 namespace Aws
@@ -63,7 +64,7 @@ namespace Aws
              * Initializes the provider chain with EnvironmentAWSCredentialsProvider, ProfileConfigFileAWSCredentialsProvider,
              * ProcessCredentialsProvider, STSAssumeRoleWebIdentityCredentialsProvider and SSOCredentialsProvider in that order.
              */
-            DefaultAWSCredentialsProviderChain();
+            DefaultAWSCredentialsProviderChain(std::shared_ptr<Aws::Client::ClientConfiguration> clientConfig = nullptr);
 
             DefaultAWSCredentialsProviderChain(const DefaultAWSCredentialsProviderChain& chain);
         };
